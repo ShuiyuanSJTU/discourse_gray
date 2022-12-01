@@ -4,3 +4,9 @@ special_topic_ids:
   description:
     zh_CN: "特殊话题ID（用|分割）"
     en: "special topic ids (splitted by |)"
+gray_degree: 
+  default: 90
+  type: integer
+  description:
+    zh_CN: "灰度比例（0-100）%"
+    en: "gray degree (0-100) %"

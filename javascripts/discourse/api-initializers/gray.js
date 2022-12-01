@@ -12,8 +12,8 @@ function loadCssCode(code) {
   head.appendChild(style);
 }
 
-function addGray() {
-  loadCssCode("html { filter: grayscale(1) }")
+function addGray(degree) {
+  loadCssCode(`html { filter: grayscale(${degree || 100}%) }`)
 }
 
 function removeGray() {
@@ -24,9 +24,11 @@ function removeGray() {
 export default apiInitializer("0.11.1", api => {
   api.onPageChange((url, title) => {
 
+    const degree = settings.gray_degree;
+
     removeGray();
     if (url == "/" || url.startsWith("/?") || url.startsWith("/latest") || url.startsWith("/categories") || url.startsWith("/top")) {
-      addGray();
+      addGray(degree);
       return;
     }
 
@@ -35,7 +37,7 @@ export default apiInitializer("0.11.1", api => {
       const ids = settings.special_topic_ids.split("|");
       const id = res[2];
       if (ids.includes(id)) {
-        addGray();
+        addGray(degree);
         return;
       }
     }
