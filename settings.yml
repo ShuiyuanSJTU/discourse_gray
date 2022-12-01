@@ -1,0 +1,6 @@
+special_topic_ids: 
+  default: ""
+  type: list
+  description:
+    zh_CN: "特殊话题ID（用|分割）"
+    en: "special topic ids (splitted by |)"
